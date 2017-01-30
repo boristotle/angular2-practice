@@ -1,0 +1,19 @@
+<form [formGroup]="myForm">
+    <div class="form-field">
+        <label>Title</label>
+        <input formControlName="title">
+        <div *ngIf="!myForm.controls.title.valid && myForm.controls.title.touched" class="form-field-error">Title must be titled 'title'.</div>
+    </div>
+    <div class="form-field">
+        <label>Duration</label>
+        <input formControlName="duration">
+    </div>
+    <div class="form-field">
+        <label>Description</label>
+        <textarea formControlName="description" [(ngModel)]="description"></textarea>
+    </div>
+    <div class="form-field">
+        <button type="submit" (click)="log(myForm)" [disabled]="!myForm.valid">Submit</button>
+        <button (click)="resetForm()">Reset</button>
+    </div>
+</form>
